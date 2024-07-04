@@ -1,0 +1,27 @@
+h1{
+    font-weight: 700;
+    font-size: 45px;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+input{
+    width: 100%;
+    font-size: 25px;
+    border-radius: 7px;;
+
+}
+
+.todo-container{
+
+    text-align: left;
+}
+
+.todo-item-row{
+    margin: 10px 5px;
+}
+
+.todo-app-btn{
+
+    min-width: 80px;
+}
