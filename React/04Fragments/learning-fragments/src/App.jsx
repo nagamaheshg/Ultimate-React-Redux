@@ -96,13 +96,72 @@ CSS Modules:
 
 */
 
-import "bootstrap/dist/css/bootstrap.min.css"; 
+/* 
+
+Passing Childrean:
+
+  function Container(props){
+    return (
+      <div className = "container-style"> {props.children} </div>
+
+    )
+  }
+
+  <Container> 
+  <h1> Welcome to my App </h1> 
+  <p> This content is passed as children to the  Container Component. </p>
+  </Container>
+
+Handling Events:
+              Build                       Build
+              ------>                    ------------>
+ Application               Virtual DOm                   DOM
+               <------
+               Event Delivery            <-------------
+                                          Event Delivery
+
+  React event use camelcase e.g. onClick
+
+  Uses synthetic event, not direct browser events.
+
+  Event handlers can be functions or arrow functions
+
+  Use onChange for controlled form inputs
+
+  Avoid inline arrow functions in JSX for performance 
+
+Passing Functions via props
+
+      parent
+        | ^
+   emit | |  props
+events  | |
+       child
+
+  1. pass dyanmic behavior between components
+
+  2. Enables upward communication from child to parent
+
+  3. Commonly used for event handling
+
+  4. parent defines a function, child invokes it.
+
+  5. Enhance component interactivity
+
+  Example:
+    <Button onClick={handleClick}/>
+*/
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import ErrorMessage from "./components/ErrorMessage";
 import FoodItems from "./components/FoodItems";
+import Container from "./components/Container";
+import SearchBox from "./components/SearchBox";
+import styles from "./App.module.css";
 
 const App = () => {
   // const foodItems = []
-  const foodItems = ["Sabzi","Dal", "Milk", "Veggies", "Salad", "Gee"];
+  const foodItems = ["Sabzi", "Dal", "Milk", "Veggies", "Salad", "Gee"];
 
   /*
       if (foodItems.length === 0) {
@@ -115,14 +174,18 @@ const App = () => {
     foodItems.length === 0 ? "<h3>I am still Hungry</h3>" : null;
 
   */
+  const handleOnChange = (event) => {
+    console.log(event.target.value);
+  };
 
   return (
-    <>
-      <h1>Healty Food</h1>
+    <Container>
+      <h1 className={styles["food-heading"]}>Healty Food</h1>
       {/*emptyMessage*/}
+      <SearchBox handleOnChange={handleOnChange} />
       <ErrorMessage items={foodItems} />
       <FoodItems items={foodItems} />
-    </>
+    </Container>
   );
 };
 
