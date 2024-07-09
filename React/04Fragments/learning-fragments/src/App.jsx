@@ -150,6 +150,36 @@ events  | |
 
   Example:
     <Button onClick={handleClick}/>
+
+Managing State:
+
+  initial Value: Pass the initial value to useState hook 
+
+  Array with two elements
+
+  const [ selectedRoom, setSelectedRoom ] = useState( initialValue );
+
+    value:
+      React assign the current value to the first element
+    
+    update function:
+      React assign the updater function to the second element.
+
+  1. State repersents data that changes overtime
+
+  2. State is local and private to the component
+
+  3. State Changes causes the component to re-render
+
+  4. For functonal components, use the useState hook.
+
+  5. React Functions start with word use are called hooks
+  
+  6. Hooks should only be used inside components
+
+  7. Parent components can pass state down to children via props
+
+  8. Lifiting state up: Share state between components by moving it to their
 */
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -158,10 +188,20 @@ import FoodItems from "./components/FoodItems";
 import Container from "./components/Container";
 import SearchBox from "./components/SearchBox";
 import styles from "./App.module.css";
+import { useState } from "react";
 
 const App = () => {
   // const foodItems = []
-  const foodItems = ["Sabzi", "Dal", "Milk", "Veggies", "Salad", "Gee"];
+
+  const [foodItems, setFoodItems] = useState([
+    "Sabzi",
+    "Dal",
+    "Milk",
+    "Veggies",
+    "Salad",
+    "Gee",
+  ]);
+  const [textToShow, setTextState] = useState();
 
   /*
       if (foodItems.length === 0) {
@@ -174,17 +214,24 @@ const App = () => {
     foodItems.length === 0 ? "<h3>I am still Hungry</h3>" : null;
 
   */
-  const handleOnChange = (event) => {
-    console.log(event.target.value);
+
+  const onKeyDown = (event) => {
+    if (event.key === "Enter") {
+      const newFoodItem = event.target.value;
+      event.target.value = "";
+      const newItems = [...foodItems, newFoodItem];
+      setFoodItems(newItems);
+      console.log("Food value entered is" + newFoodItem);
+    }
   };
 
   return (
     <Container>
       <h1 className={styles["food-heading"]}>Healty Food</h1>
       {/*emptyMessage*/}
-      <SearchBox handleOnChange={handleOnChange} />
-      <ErrorMessage items={foodItems} />
+      <SearchBox handleKeyDown={onKeyDown} />
       <FoodItems items={foodItems} />
+      <ErrorMessage items={foodItems} />
     </Container>
   );
 };

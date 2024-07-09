@@ -1,6 +1,6 @@
 import styles from "./SearchBox.module.css";
 
-const SearchBox = ({handleOnChange}) => {
+const SearchBox = ({handleKeyDown}) => {
  
   return (
     <>
@@ -8,7 +8,7 @@ const SearchBox = ({handleOnChange}) => {
         className={styles.searchBox}
         type="text"
         placeholder="Enter food item"
-        onChange={handleOnChange}
+        onKeyDown={handleKeyDown}
       />
     </>
   );

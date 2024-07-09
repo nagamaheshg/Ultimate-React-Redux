@@ -1,8 +1,12 @@
 .app-food-item{
 
-    background: #ffaacc;
+    background: #fce980;
     font-weight: bold;
+    color: balck;
+    border: 2px solid rgb(17, 16, 16);
+ 
 }
 .buyButton{
     float: right;
+    
 }
