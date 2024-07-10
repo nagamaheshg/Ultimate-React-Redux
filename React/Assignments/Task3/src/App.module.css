@@ -1,0 +1,13 @@
+/* src/App.module.css */
+.appContainer {
+    background: url('../assets/theme.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: black; /* Optional: If you want to set a default text color */
+  }
+  

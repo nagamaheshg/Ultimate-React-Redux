@@ -1,0 +1,16 @@
+.homeHeader {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .homeHeader h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  .homeHeader p {
+    margin: 0.5rem 0 0;
+    font-size: 1.2rem;
+    color: #666;
+  }

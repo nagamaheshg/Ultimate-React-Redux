@@ -1,10 +1,14 @@
-const Header = ({userName, profession}) => {
+import styles from "./Header.module.css";
+
+const Header = ({ userName, profession }) => {
   return (
     <>
-      <h1>Welcome to My Portfolio</h1>
-      <p>
-        Hi, I'm {userName}, a passionate {profession}!
-      </p>
+      <header className={styles.homeHeader}>
+        <h1>Welcome to My Portfolio</h1>
+        <p>
+          Hi, I'm {userName}, a passionate {profession}!
+        </p>
+      </header>
     </>
   );
 };
