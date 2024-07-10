@@ -180,6 +180,22 @@ Managing State:
   7. Parent components can pass state down to children via props
 
   8. Lifiting state up: Share state between components by moving it to their
+
+
+State vs Props:
+
+    State:
+      Local and muitable data within a component
+      initialized within the component
+      can change over time
+      causes re-render when updated
+      Managed using useState is functional components
+    
+    Props:
+      Passed into a components from its parents
+      Read-only (immutiable) within the receiving component.
+      Allow parent-to-child component communication.
+      Changes in props can also cause re-render
 */
 
 import "bootstrap/dist/css/bootstrap.min.css";
